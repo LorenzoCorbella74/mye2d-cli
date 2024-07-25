@@ -1,0 +1,33 @@
+{
+  "name": "mye2d",
+  "version": "1.0.0",
+  "description": "The companion cli for my-engine-2d",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "watch": "npx tsc -w"
+  },
+  "bin": {
+    "mye2d": "dist/index.js"
+  },
+  "keywords": [],
+  "author": "Lorenzo Corbella",
+  "license": "ISC",
+  "dependencies": {
+    "@inquirer/prompts": "^5.3.2",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "figlet": "^1.7.0",
+    "fs-extra": "^11.2.0",
+    "ora": "^8.0.1",
+    "simple-git": "^3.25.0"
+  },
+  "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/figlet": "^1.5.8",
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.14.12",
+    "@types/ora": "^3.2.0",
+    "typescript": "^5.5.4"
+  }
+}
