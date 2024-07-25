@@ -23,18 +23,17 @@ async function downloadRepo(targetPath: string) {
     }
 }
 
-// Funzione per personalizzare il progetto
+// Si personalizza il progetto (package.json + mye2d.json)
 async function customizeProject(projectPath: string, answers: { [key: string]: string }) {
     const packageJsonPath = path.join(projectPath, 'package.json');
     const packageJson = await fs.readJson(packageJsonPath);
-
-    packageJson.name = answers.projectName;
+    packageJson.name = answers.name;
     packageJson.description = answers.description;
-
     await fs.writeJson(packageJsonPath, packageJson, { spaces: 2 });
+    await fs.writeJson(path.join(projectPath, 'mye2d.json'), { version: packageJson.version }, { spaces: 2 });
 }
 
-// Funzione per eseguire npm install
+// npm install
 function installDependencies(projectPath: string) {
     return new Promise<void>((resolve, reject) => {
         const spinner = ora('Installing dependencies...').start();
@@ -53,8 +52,8 @@ function installDependencies(projectPath: string) {
 
 // Comando "new" per creare un nuovo progetto
 export async function newProject(projectName: string) {
-
-    const description = await input({ message: 'Describe your project:', default: 'A test game project' });
+    console.log(chalk.green(`Creating game project "${projectName}".`));
+    const description = await input({ message: 'Describe your project:', default: 'A game about...' });
     const answers = { name: projectName, description: description };
 
     const targetPath = path.resolve(process.cwd(), projectName);
@@ -63,6 +62,9 @@ export async function newProject(projectName: string) {
         await customizeProject(targetPath, answers);
         await installDependencies(targetPath);
         console.log(chalk.green(`Project created succesfully in ${targetPath}`));
+        console.log(chalk.blue(`Enter in the project folder and run:`));
+        console.log(chalk.blue(`- "mye2d --scene  <name>" to create game scenes`));
+        console.log(chalk.blue(`- "mye2d --gameobject <name>" to to create game objects`)+'\n');
     } catch (error) {
         console.error(chalk.red('Error:', error));
     }

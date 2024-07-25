@@ -5,9 +5,9 @@ import figlet from "figlet";
 import chalk from "chalk";
 
 // Commands
-import { newProject } from "./commands/project";
-import { newScene } from "./commands/scene";
-import { newGameObject } from "./commands/gameobject";
+import { newProject } from "./commands/project.js";
+import { newScene } from "./commands/scene.js";
+import { newGameObject } from "./commands/gameobject.js";
 
 const program = new Command();
 
@@ -31,7 +31,7 @@ if (options.new) {
     await newScene(sceneName);
 } else if (options.gameobject) {
     const gameObjectName = options.gameobject;
-    await newGameObject(gameObjectName);
+    await newGameObject(gameObjectName, 'todo');
 } else {
     console.log(
         chalk.yellow("Please provide a valid command like --new, --scene or --gameobject")

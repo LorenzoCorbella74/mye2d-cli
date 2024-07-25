@@ -1,0 +1,11 @@
+import { GameObject } from '../../engine/GameObject';
+import { Entity } from '../../engine/decorators';
+
+@Entity()
+export class {{gameObjectName}} extends GameObject {
+
+    constructor(name: string, spriteName: string) {
+        super(name);
+        this.addComponent(new SpriteComponent(this, spriteName));
+    }
+}
