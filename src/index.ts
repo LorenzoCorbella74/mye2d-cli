@@ -18,7 +18,7 @@ program
     .description("A CLI tool for the game engine my-engine-2d")
     .option("-n, --new <name>", "Create a game project")
     .option("-s, --scene  <name>", "Create a scene")
-    .option("-g, --gameobject <name>", "Create a game object")
+    .option("-g, --gameobject <name>", "Create a game object in a scene (default in Common scene)")
     .parse(process.argv);
 
 const options = program.opts();
@@ -31,7 +31,8 @@ if (options.new) {
     await newScene(sceneName);
 } else if (options.gameobject) {
     const gameObjectName = options.gameobject;
-    await newGameObject(gameObjectName, 'todo');
+    const sceneName = 'common';
+    await newGameObject(gameObjectName, sceneName);
 } else {
     console.log(
         chalk.yellow("Please provide a valid command like --new, --scene or --gameobject")

@@ -14,9 +14,8 @@ export async function isMe2DProject(): Promise<boolean> {
 }
 
 // Funzione per creare una scena o un game object
-export async function modifyFile(templatePath: string, targetPath: string, replacements: { [key: string]: string }) {
-    const content = await fs.readFile(templatePath, 'utf-8');
-    let replacedContent = content;
+export async function modifyFile(templateContent: string, targetPath: string, replacements: { [key: string]: string }) {
+    let replacedContent = templateContent;
     for (const [key, value] of Object.entries(replacements)) {
         replacedContent = replacedContent.replace(new RegExp(`{{${key}}}`, 'g'), value);
     }

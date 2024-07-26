@@ -1,6 +1,6 @@
 {
   "name": "mye2d",
-  "version": "0.0.1",
+  "version": "0.0.7",
   "type": "module",
   "description": "The companion cli for my-engine-2d",
   "main": "dist/index.js",
@@ -27,6 +27,7 @@
     "commander": "^12.1.0",
     "figlet": "^1.7.0",
     "fs-extra": "^11.2.0",
+    "mye2d": "^0.0.2",
     "ora": "^8.0.1",
     "simple-git": "^3.25.0"
   },

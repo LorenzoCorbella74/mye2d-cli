@@ -1,6 +1,8 @@
-import { Scene } from "../../engine/Scene";
+export const sceneTemplate =`
 
-export class {{sceneName}}Scene extends Scene {
+import { Scene } from "../../../engine/Scene";
+
+export class {{name}}Scene extends Scene {
 
     constructor() {
         super()
@@ -17,4 +19,4 @@ export class {{sceneName}}Scene extends Scene {
     onExit() {
 
     }
-}
+}`;
