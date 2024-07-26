@@ -14,7 +14,7 @@ const program = new Command();
 console.log(figlet.textSync("MY-ENGINE-2D  Cli"));
 
 program
-    .version("0.1.0")
+    .version("0.0.7")
     .description("A CLI tool for the game engine my-engine-2d")
     .option("-n, --new <name>", "Create a game project")
     .option("-s, --scene  <name>", "Create a scene")

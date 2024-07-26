@@ -3,7 +3,7 @@ import path from 'path';
 import { capitalizeFirstLetter, isMe2DProject, modifyFile } from "../helpers.js";
 import { gameObjectTemplate } from "../templates/gameobject-template.js";
 
-// Comando "gameobject" to create a new game object
+// Command "gameobject" to create a new game object
 export async function newGameObject(gameObjectName: string, sceneName: string) {
     if (!(await isMe2DProject())) {
         console.error(chalk.red('Current folder is not a me2D project.'));

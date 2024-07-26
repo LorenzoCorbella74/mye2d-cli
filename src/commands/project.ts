@@ -64,7 +64,7 @@ export async function newProject(projectName: string) {
         console.log(chalk.green(`Project created succesfully in ${targetPath}`));
         console.log(chalk.blue(`Enter in the project folder and run:`));
         console.log(chalk.blue(`- "mye2d --scene  <name>" to create game scenes`));
-        console.log(chalk.blue(`- "mye2d --gameobject <name>" to to create game objects`)+'\n');
+        console.log(chalk.blue(`- "mye2d --gameobject <name>" to create game objects`)+'\n');
     } catch (error) {
         console.error(chalk.red('Error:', error));
     }
